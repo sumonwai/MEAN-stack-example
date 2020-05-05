@@ -3,10 +3,12 @@
     <mat-card-title>New Post</mat-card-title>
     <mat-card-content>
       <mat-form-field>
-        <input matInput type="text" width="100%" name="title" ngModel required>
+        <input matInput type="text" width="100%" name="title" ngModel required #title="ngModel">
+        <mat-error *ngIf="title.invalid">Title is required</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <textarea matNativeControl rows="6" width="100%" name="content" ngModel required></textarea>
+        <textarea matNativeControl rows="6" width="100%" name="content" ngModel required #content="ngModel"></textarea>
+        <mat-error *ngIf="content.invalid">Content is required</mat-error>
       </mat-form-field>
     </mat-card-content>
   <mat-card-actions>
